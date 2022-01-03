@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import NewUser from './components/NewUser/NewUser';
+import NewUserForm from './components/NewUser/NewUserForm';
 import Users from './components/Users/Users';
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div>
-      <NewUser onSaveNewUser={saveNewUserHandler} />
+      <NewUserForm onSaveNewUser={saveNewUserHandler} />
       <Users users={users} onDeleteUser={deleteUserHandler}/>
     </div>
   );

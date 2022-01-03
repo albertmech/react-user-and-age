@@ -89,6 +89,7 @@ const NewUserForm = (props) => {
         const newUser = {
             username: enteredUsername,
             age: enteredAge,
+            id: Math.random().toString(),
         }
 
         console.log(newUser);
