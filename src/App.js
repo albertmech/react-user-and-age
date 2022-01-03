@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import NewUser from './components/NewUser/NewUser';
+import Users from './components/Users/Users';
 
-function App() {
+const App = () => {
+  const [users, setUsers] = useState(
+    [
+      {
+        id: "user1",
+        username: "User1",
+        age: 10,
+      },
+      {
+        id: "user2",
+        username: "User2",
+        age: 20,
+      },
+    ]);
+
+  const saveNewUserHandler = (newUserData) => {
+    console.log(newUserData);
+    setUsers((prevUsers)=>[
+      newUserData,
+      ...prevUsers,
+    ]);
+  };
+
+  const deleteUserHandler = (userId) => {
+    console.log(`Deleting user with id ${userId}`);
+    setUsers(users.filter(user => user.id != userId));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NewUser onSaveNewUser={saveNewUserHandler} />
+      <Users users={users} onDeleteUser={deleteUserHandler}/>
     </div>
   );
 }
