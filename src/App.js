@@ -4,18 +4,7 @@ import Users from './components/Users/Users';
 
 const App = () => {
   const [users, setUsers] = useState(
-    [
-      {
-        id: "user1",
-        username: "User1",
-        age: 10,
-      },
-      {
-        id: "user2",
-        username: "User2",
-        age: 20,
-      },
-    ]);
+    []);
 
   const saveNewUserHandler = (newUserData) => {
     console.log(newUserData);
