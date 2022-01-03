@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import NewUserForm from './components/NewUser/NewUserForm';
-import Users from './components/Users/Users';
+import UsersList from './components/Users/UsersList';
 
 const App = () => {
   const [users, setUsers] = useState(
@@ -9,8 +9,8 @@ const App = () => {
   const saveNewUserHandler = (newUserData) => {
     console.log(newUserData);
     setUsers((prevUsers)=>[
-      newUserData,
       ...prevUsers,
+      newUserData,
     ]);
   };
 
@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div>
       <NewUserForm onSaveNewUser={saveNewUserHandler} />
-      <Users users={users} onDeleteUser={deleteUserHandler}/>
+      <UsersList users={users} onDeleteUser={deleteUserHandler}/>
     </div>
   );
 }

@@ -16,13 +16,13 @@ const UsersList = (props) => {
     }
 
     return (
-        <div>
+        <Card>
             <ul className="users-list">
                 {props.users.map(user => {
                     return <User key={user.id} id={user.id} username={user.username} age={user.age} onDeleteUser={deleteUserHandler} />
                 })}
             </ul>
-        </div>
+        </Card>
     )
 }
 

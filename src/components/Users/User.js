@@ -1,3 +1,4 @@
+import Card from "../UI/Card/Card";
 import "./User.css"
 
 const User = (props) => {
@@ -7,8 +8,10 @@ const User = (props) => {
     };
 
     return (
-        <li className="user" onClick={clickHandler}>
-            {props.username} (age: {props.age})
+        <li>
+            <Card className="user" onClick={clickHandler}>
+                {props.username} (age: {props.age})
+            </Card>
         </li>
     )
 }

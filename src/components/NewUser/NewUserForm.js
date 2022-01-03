@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../UI/Button/Button";
+import Card from "../UI/Card/Card";
 import ErrorModal from "../UI/ErrorModal";
 
 import styles from "./NewUserForm.module.css"
@@ -106,29 +107,31 @@ const NewUserForm = (props) => {
     return (
         <div>
             {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler} />}
-            <form onSubmit={userSubmitHandler}>
-                <div>
-                    <div className={`${styles['form-control']} ${!isValidUserName && styles.invalid}`} >
-                        <label>Username</label>
-                        <input
-                            type='text'
-                            value={enteredUsername}
-                            onChange={usernameChangeHandler}
-                        />
+            <Card>
+                <form onSubmit={userSubmitHandler}>
+                    <div>
+                        <div className={`${styles['form-control']} ${!isValidUserName && styles.invalid}`} >
+                            <label>Username</label>
+                            <input
+                                type='text'
+                                value={enteredUsername}
+                                onChange={usernameChangeHandler}
+                            />
+                        </div>
+                        <div className={`${styles['form-control']} ${!isValidAge && styles.invalid}`}>
+                            <label>Age</label>
+                            <input
+                                type='number'
+                                value={enteredAge}
+                                onChange={ageChangeHandler}
+                            />
+                        </div>
                     </div>
-                    <div className={`${styles['form-control']} ${!isValidAge && styles.invalid}`}>
-                        <label>Age</label>
-                        <input
-                            type='number'
-                            value={enteredAge}
-                            onChange={ageChangeHandler}
-                        />
+                    <div>
+                        <Button type='submit'>Add new user</Button>
                     </div>
-                </div>
-                <div>
-                    <Button type='submit'>Add new user</Button>
-                </div>
-            </form>
+                </form>
+            </Card>
         </div>
     )
 }
